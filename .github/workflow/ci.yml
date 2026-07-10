@@ -1,6 +1,5 @@
 name: CI Group8
 
-# Trigger pipeline on every push to the repository
 on:
   push:
     branches:
@@ -8,24 +7,22 @@ on:
 
 jobs:
   build:
-    # Use a fresh Ubuntu runner for the job
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # Step 2: Set up Python environment
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.12"
 
-      # Step 3: Run the application
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
       - name: Run application
         run: python app.py
 
-      # Step 4: Optional: Echo success message
-      - name: Build Success
+      - name: Success
         run: echo "CI Pipeline executed successfully!"
