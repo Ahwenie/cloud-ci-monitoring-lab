@@ -2,7 +2,7 @@ name: CI Group8
 
 # Trigger pipeline on every push to the repository
 on:
-  push:
+  push: main
 
 jobs:
   build:
