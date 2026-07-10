@@ -24,7 +24,7 @@ jobs:
  
       # Step 3: Run the application
       - name: Run application
-        run: python app.py
+        run: python app2.py
  
       # Step 4: Optional: Echo success message
       - name: Build Success
