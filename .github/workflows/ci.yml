@@ -24,8 +24,11 @@ jobs:
  
       # Step 3: Run the application
       - name: Run application
-        run: python app2.py
+        run: python app.py
  
       # Step 4: Optional: Echo success message
       - name: Build Success
         run: echo "CI Pipeline executed successfully!"
+
+      - name: check python version
+        run: python --version
